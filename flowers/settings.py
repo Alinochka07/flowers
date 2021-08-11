@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'flowertypes',
+    'anniversaryfl',
+    'homeflowers',
+    'flowercare',
 ]
 
 MIDDLEWARE = [

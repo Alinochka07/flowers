@@ -25,14 +25,28 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'flower-types' %}">Виды цветов</a>
             </li>
-          
+          </ul>
+
+          <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link disabled" href="">Disabled</a>
+              <a class="nav-link" href="{% url 'anniversary-flowers' %}">Букеты для торжеств</a>
             </li>
           </ul>
+
+          <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home-flowers' %}">Комнатные цветы и растения</a>
+          </li>
+        </ul>
+        
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'flower-care' %}">Все для ухода за цветами</a>
+        </li>
+      </ul>
        
         </div>
-      </nav>
+    </nav>
       <div class="container">
             {% block page %}
 
