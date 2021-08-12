@@ -25,6 +25,7 @@ urlpatterns = [
     path('anniversaryfl/', include('anniversaryfl.urls')),
     path('homeflowers/', include('homeflowers.urls')),
     path('flowercare/', include('flowercare.urls')),
+    path('flowertypes/roses/', include('flowertypes.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
