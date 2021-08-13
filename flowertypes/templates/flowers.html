@@ -3,10 +3,7 @@
 {% block page %}
 
 <h2>Виды цветов</h2>
-{% for roses in flowertypes %}
-    <div><a href="{% url 'roses' roses.id %}">{{ roses.name }} <br>
-        {{ roses.description }}</a></div>
 
-{% endfor %}
+
 
 {% endblock %}
