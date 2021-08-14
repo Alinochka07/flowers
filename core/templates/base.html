@@ -16,8 +16,8 @@
 </head>
 <body>
       
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'homepage' %}"><img src="{% static 'media/flowerslogo.png' %}" alt="Logo"></a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <a class="navbar-brand" href="{% url 'homepage' %}"><img src="{% static 'media/logo.png' %}" alt="Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -65,7 +65,7 @@
 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="{% url 'flower-care' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Все для ухода за цветами
+                Все для цветов
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Горшки для цветов</a>
@@ -75,11 +75,28 @@
               </div>
             </li>
 
-            <nav class="navbar navbar-light bg-light">
+            <nav class="navbar navbar-light bg-white">
               <form class="form-inline">
+
                 <input class="form-control mr-sm-2" type="search" placeholder="Искать товар" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+                <button class="btn btn-outline-info" type="submit">Поиск</button> 
               </form>
+            </nav>
+
+            <nav class="navbar navbar-light bg-white">
+              <div class="container">
+                <a class="navbar-brand" href="#">
+                  <img src="{% static 'media/basket.png' %}" alt="" width="36">
+                </a>
+
+                <a class="navbar-brand" href="#">
+                  <img src="{% static 'media/delivery.jpg' %}" alt="" width="40">
+                </a>
+
+                <a class="navbar-brand" href="#">
+                  <img src="{% static 'media/profile.png' %}" alt="" width="30">
+                </a>
+              </div>
             </nav>
        
         </div>

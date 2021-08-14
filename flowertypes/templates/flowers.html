@@ -1,9 +1,34 @@
 {% extends 'base.html' %} 
+{% load static %}
 
 {% block page %}
 
-<h2>Виды цветов</h2>
 
+<h2>Виды букетов из роз</h2>
+
+
+<table>
+    <tr>
+        <td>
+            <img src="{{ rose.image.url }}">
+        </td>
+    </tr>
+</table>
+{% csrf_token %}
+
+{% for rose in rosesbouquets %}
+    <div> <a href="{% url 'rose' rose.id %}">{{ rose.name }}
+        <br>
+        {{ rose.price }}
+       
+    </a>
+
+<!-- не отображается картинка, а вместо нее отображается ссылка на картинку -->
+    {{ rose.image.url }}  
+</div>
+
+
+{% endfor %}
 
 
 {% endblock %}

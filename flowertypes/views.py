@@ -11,10 +11,10 @@ from .models import *
 
 def roses_bouquets(request):
     roses_bouquets_object = RosesBouquets.objects.all()
-    return render(request, 'roses.html',
-    {'flowertypes': roses_bouquets_object})
+    return render(request, 'flowers.html',
+    {'rosesbouquets': roses_bouquets_object})
 
-def roses(request, id):
+def rose(request, id):
     try:
         roses_object = RosesBouquets.objects.get(id=id)
         return render(request, 'roses.html', {
