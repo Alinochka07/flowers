@@ -1,34 +1,86 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load static %}
 
 {% block page %}
 
+<h3>Букеты из роз</h3>
 
-<h2>Виды букетов из роз</h2>
+<div class="container">
 
+    <div class="row">
+        <div class="column-md-4">
+            <table class="" colspan=4>
+                <tbody>
+                    {% for rose in rosesbouquets %} 
+                    <td colspan="4" style="padding-right: 40px; padding-bottom: 10px;"><img src="{{ rose.image.url }}" width="300"/></td>
+                    {% endfor %} 
+                </tbody>
 
-<table>
-    <tr>
-        <td>
-            <img src="{{ rose.image.url }}">
-        </td>
-    </tr>
-</table>
-{% csrf_token %}
+                <tbody>
+                    {% for rose in rosesbouquets %}
+                    <td colspan="4"><h4 style="font-size: 18px; font-weight: bold; color: rgb(20, 110, 146);">{{ rose.name }}</h4></td>
+                    {% endfor %} 
+                </tbody>
 
-{% for rose in rosesbouquets %}
-    <div> <a href="{% url 'rose' rose.id %}">{{ rose.name }}
-        <br>
-        {{ rose.price }}
-       
-    </a>
+                <tbody>
+                    {% for rose in rosesbouquets %} 
+                    <td colspan="4"><p style="color: rgb(38, 138, 83); font-size: smaller; font-weight: bolder;">{{ rose.price }} Сом</p></td>
+                    {% endfor %} 
+                </tbody>
 
-<!-- не отображается картинка, а вместо нее отображается ссылка на картинку -->
-    {{ rose.image.url }}  
+                
+
+                <tbody>
+                    {% for rose in rosesbouquets %} 
+                    <td colspan="4"><img src="{% static 'media/empty_star.png' %}"><img width="30px" src="{% static 'media/basket.png' %}"></td>
+                    {% endfor %} 
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
 </div>
+<!-- <table>
+    <tr>
+        <td>{% for rose in rosesbouquets %} 
+                <a href="{% url 'rose' rose.id %}"><h5>{{ rose.name}}</h5>
+                {% if rose.image %} 
+                    <img src="{{ rose.image.url }}" width="300"/></a>
+                {% endif %} 
+                <h6>{{ rose.price }}</h6>
+                
+            {% endfor %} 
+        </td>    
+        <td>{% for rose in rosesbouquets %} 
+            <a href="{% url 'rose' rose.id %}"><h5>{{ rose.name}}</h5>
+            {% if rose.image %} 
+                <img src="{{ rose.image.url }}" width="300"/></a>
+            {% endif %} 
+            <h6>{{ rose.price }}</h6>
+            
+        {% endfor %} 
+        </td>  
+        
+        <td>{% for rose in rosesbouquets %} 
+            <a href="{% url 'rose' rose.id %}"><h5>{{ rose.name}}</h5>
+            {% if rose.image %} 
+                <img src="{{ rose.image.url }}" width="300"/></a>
+            {% endif %} 
+            <h6>{{ rose.price }}</h6>
+            
+        {% endfor %} 
+        </td>    
 
 
-{% endfor %}
+    </tr>
+</table> -->
 
+    <!-- {% for rose in rosesbouquets %} 
+        <div>
+            <img src="{{ rose.image.url }}"/>
+            <a href="{% url 'rose' rose.id %}">{{ rose.name}} - {{ rose.price}} - {{ rose.image }}</a></div>
+    {% endfor %} -->
 
-{% endblock %}
+{% endblock %}    

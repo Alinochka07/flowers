@@ -35,23 +35,6 @@ class RosesBouquets(models.Model):
         ordering = ['name']
         # fields = ('name', 'description', 'price', 'image')
 
-# class OtherBouquets(models.Model):
-#     b_name = models.CharField(max_length=255)
-#     # description = models.TextField(null=True, blank=True)
-#     # price = models.IntegerField(null=True, blank=True)
-#     # created_at = models.DateTimeField(auto_now_add=True)
-#     # updated_at = models.DateTimeField(auto_now=True)
-#     # views_count = models.IntegerField(default=0)
-#     # image = models.ImageField(upload_to='flowertypes', null=True, blank=True)
-
-#     def __str__(self):
-#         return self.b_name
-
-#     class Meta:
-#         verbose_name = "Другой вид цветов"
-#         verbose_name_plural = "Другие виды цветов"
-#         # ordering = ['name']
-
 
 class OtherFlowers(models.Model):
     name = models.CharField(max_length=255)
@@ -70,3 +53,5 @@ class OtherFlowers(models.Model):
         verbose_name = "Другой букет"
         verbose_name_plural = "Другие букеты"
         ordering = ['name']
+
+
