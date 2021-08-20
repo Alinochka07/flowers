@@ -11,5 +11,4 @@ urlpatterns = [
     path('seasonal/<int:id>/', season, name='season'),
     path('assorted/', assorted_bouquets, name='assorted-bouquets'),
     path('assorted/<int:id>/', assorted, name='assorted'),
-
 ]

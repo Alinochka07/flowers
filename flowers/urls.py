@@ -27,6 +27,7 @@ urlpatterns = [
     path('anniversaryfl/', include('anniversaryfl.urls')),
     path('homeflowers/', include('homeflowers.urls')),
     path('flowercare/', include('flowercare.urls')),
+    path('campaign/', include('campaign.urls')),
 ]
 
 if settings.DEBUG:
