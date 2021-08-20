@@ -49,11 +49,10 @@ class AssortedFlowers(models.Model):
     views_count = models.IntegerField(default=0)
     image = models.ImageField(upload_to='assorted', null=True, blank=True)
     price = models.IntegerField(null=True, blank=True)
-    discount = models.IntegerField(null=True, blank=True, default=0)
-    # discount_price = int(price - (price * discount / 100))
+    sale = models.IntegerField('Discount percentage', null=True, blank=True, default=0)
 
     def get_sale(self):
-        price = int(self.price * (100 - self.discount) / 100)
+        price = int(self.price * (100 - self.sale) / 100)
         return price
 
     def __str__(self):

@@ -28,10 +28,17 @@
 
                 <tbody>
                     {% for assorted in assortedbouquets %} 
-                    <td colspan="4"><p style="color: rgb(38, 138, 83); font-size: smaller; font-weight: bolder;">{{ assorted.price }} Сом</p></td>
+                    <td colspan="4"><p style="color: rgb(38, 138, 83); font-size: smaller; font-weight: bolder;">Цена: {{ assorted.price }} Сом</p></td>
                     {% endfor %} 
                 </tbody>
 
+                <tbody>
+                    {% for assorted in assortedbouquets %} 
+                        {% if assorted.sale %}
+                            <td colspan="4"><p style="color: rgb(211, 29, 29); font-size: 14px; font-weight: bolder;">Цена со скидкой: {{ assorted.get_sale }} Сом</p></td>
+                        {% endif %} 
+                    {% endfor %} 
+                </tbody>
                 
 
                 <tbody>
