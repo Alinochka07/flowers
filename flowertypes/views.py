@@ -1,12 +1,8 @@
 from django.shortcuts import render, HttpResponse
-from .models import *
+from .models import RosesBouquets, SeasonFlowers
 
 
-
-# def flowers(request):
-#     flowers_objects = RosesBouquets.objects.all()
-#     return render(request, 'flowertypes/.html')
-#     # {'flowertypes': flowers_objects})
+# Roses category
 
 
 def roses_bouquets(request):
@@ -23,27 +19,39 @@ def rose(request, id):
     except RosesBouquets.DoesNotExist as e:
         return HttpResponse(f'Товар не существует: {e}', status=404)
 
+
+
+# Other flowers category
+
 def other_bouquets(request):
-    #  other_bouquets_objects = OtherBouquets.objects.all()
-     return render(request, 'otherflowers.html')
-    #  {'flowertypes': other_bouquets_objects})
+    other_bouquets_object = OtherFlowers.objects.all()
+    return render(request, 'flowers2.html',
+    {'otherbouquets': other_bouquets_object})
 
 
-def other_flowers(request):
+
+def other(request, id):
     try:
-        others_object = OtherBouquets.objects.get(id=id)
-        return render(request, 'otherflowers.html', {
-            'others_object': others_object
-        })
-    except OtherBouquets.DoesNotExist as e:
+        other_object = OtherFlowers.objects.get(id=id)
+        return render(request, 'others.html',
+        {'other_object': other_object})
+
+    except OtherFlowers.DoesNotExist as e:
         return HttpResponse(f'Товар не существует: {e}', status=404)
 
 
-def otherflowers(request, id):
+# Seasonal category      
+
+def season_bouquets(request):
+    season_bouquets_object = SeasonFlowers.objects.all()
+    return render(request, 'flowers3.html',
+    {"seasonbouquets": season_bouquets_object})
+
+def season(request, id):
     try:
-        otherflowers_object = OtherBouquets.objects.get(id=id)
-        return render(request, 'otherflowers.html', {
-            'otherflowers_object': otherflowers_object
-        })
-    except OtherBouquets.DoesNotExist as e:
+        season_object = SeasonFlowers.objects.get(id=id)
+        return render(request, 'season.html',
+        {'season_object': season_object})
+    
+    except SeasonFlowers.DoesNotExist as e:
         return HttpResponse(f'Товар не существует: {e}', status=404)
