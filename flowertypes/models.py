@@ -13,6 +13,11 @@ class RosesBouquets(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     views_count = models.IntegerField(default=0)
     image = models.ImageField(upload_to='roses', null=True, blank=True)
+    sale = models.IntegerField('Discount percentage', null=True, blank=True, default=0)
+
+    def get_sale(self):
+        price = int(self.price * (100 - self.sale) / 100)
+        return price
 
     def __str__(self):
         return self.name
@@ -31,6 +36,11 @@ class SeasonFlowers(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     views_count = models.IntegerField(default=0)
     image = models.ImageField(upload_to='seasonal', null=True, blank=True)
+    sale = models.IntegerField('Discount percentage', null=True, blank=True, default=0)
+
+    def get_sale(self):
+        price = int(self.price * (100 - self.sale) / 100)
+        return price
 
     def __str__(self):
         return self.name
