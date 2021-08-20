@@ -3,7 +3,7 @@
 
 {% block page %}
 
-<h3>Сезонные букеты</h3>
+<h3>Другие виды цветов</h3>
 
 <div class="container">
 
@@ -11,7 +11,7 @@
         <div class="column-md-4">
             <table class="" colspan=4>
                 <tbody>
-                    {% for season in seasonal %} 
+                    {% for season in seasonbouquets %} 
                         {% if season.image %} 
                             <td colspan="4" style="padding-right: 40px; padding-bottom: 10px;"> <a href="{% url 'season' season.id %}"><img src="{{ season.image.url }}" width="300"/></a></td>
                         {% else %}
@@ -21,13 +21,13 @@
                 </tbody>
 
                 <tbody>
-                    {% for season in seasonal %} 
+                    {% for season in seasonbouquets %} 
                     <td colspan="4"><a href="{% url 'season' season.id %}"><h4 style="font-size: 18px; font-weight: bold; color: rgb(20, 110, 146);">{{ season.name }}</h4></a></td>
                     {% endfor %} 
                 </tbody>
 
                 <tbody>
-                    {% for season in seasonal %} 
+                    {% for season in seasonbouquets %} 
                     <td colspan="4"><p style="color: rgb(38, 138, 83); font-size: smaller; font-weight: bolder;">{{ season.price }} Сом</p></td>
                     {% endfor %} 
                 </tbody>
@@ -35,7 +35,7 @@
                 
 
                 <tbody>
-                    {% for season in seasonal %} 
+                    {% for season in seasonbouquets %} 
                     <td colspan="4"><img src="{% static 'media/empty_star.png' %}"><img width="30px" src="{% static 'media/basket.png' %}"></td>
                     {% endfor %} 
                 </tbody>
