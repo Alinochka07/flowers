@@ -14,6 +14,7 @@ class RosesBouquets(models.Model):
     views_count = models.IntegerField(default=0)
     image = models.ImageField(upload_to='roses', null=True, blank=True)
     sale = models.IntegerField('Discount percentage', null=True, blank=True, default=0)
+    
 
     def get_sale(self):
         price = int(self.price * (100 - self.sale) / 100)
@@ -26,6 +27,11 @@ class RosesBouquets(models.Model):
         verbose_name = "Букет из роз"
         verbose_name_plural = "Букеты из роз"
         ordering = ['name']
+
+# class Product(models.Model):
+#     name = models.CharField(max_length=100, db_index=True)
+#     category = models.ForeignKey(RosesBouquets, on_delete=models.CASCADE)
+
 
 
 class SeasonFlowers(models.Model):

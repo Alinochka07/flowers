@@ -3,7 +3,7 @@
 
 {% block page %}
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
     .checked {
@@ -16,8 +16,8 @@
 <div class="container">
 
     <div class="row">
-        <div class="column-md-4">
-            <table class="" colspan=4>
+        <div class="flex-rose"> --> 
+            <!-- <table class="" colspan=4>
                 <tbody>
                     {% for rose in rosesbouquets %} 
                         {% if rose.image %} 
@@ -64,11 +64,49 @@
                     {% endfor %} 
                 </tbody>
 
-            </table>
+            </table> -->
 
-        </div>
+
+            <h3>Букеты из роз</h3>
+
+<div class="container">
+
+    <div class="row row-cols-4">
+        
+        
+        {% for rose in rosesbouquets %}
+            <div class="col">
+                    <div class="bouquet p-2">
+                        <div class="image">
+                            {% if rose.image %}
+                                <a href="{% url 'rose' rose.id %}"><img src="{{ rose.image.url }}" width="300"/></a>
+                            {% else %}
+                                <a href="{% url 'rose' rose.id %}"><img src="{% static 'media/nophoto.jpg' %}" width="300"/></a>
+                            {% endif %}
+                        </div>
+                        <h4 style="font-size: 18px; font-weight: bold; color: rgb(20, 110, 146);">{{ rose.name }}</h4></a>
+                        {% if rose.sale %}
+                            <p style="color: rgb(38, 138, 83); font-size: smaller; font-weight: bolder; text-decoration: line-through;">Цена: {{ rose.price }} Сом</p>
+                        {% else %}
+                            <p style="color: rgb(38, 138, 83); font-size: smaller; font-weight: bolder;">Цена: {{ rose.price }} Сом</p>
+                        {% endif %}
+                        {% if rose.sale %}
+                            <p style="color: rgb(211, 29, 29); font-size: 14px; font-weight: bolder;">Цена со скидкой: {{ rose.get_sale }} Сом</p>
+                        {% endif %}
+                        <div class="stars">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+            </div>
+
+        {% endfor %}
 
     </div>
 </div>
 
-{% endblock %}    
+{% endblock %}
+                        
