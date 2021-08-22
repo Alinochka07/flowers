@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from django.views import View
 from .models import *
 
@@ -54,3 +54,9 @@ def assorted(request, id):
     
     except AssortedFlowers.DoesNotExist as e:
         return HttpResponse(f'Товар не существует: {e}', status=404)
+
+
+
+
+
+

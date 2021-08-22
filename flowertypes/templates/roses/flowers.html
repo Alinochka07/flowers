@@ -2,80 +2,14 @@
 {% load static %}
 
 {% block page %}
-
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<style>
-    .checked {
-      color: orange;
-    }
-    </style>
-
-<h3>Букеты из роз</h3>
-
 <div class="container">
+    <h3>Букеты из роз</h3>
 
     <div class="row">
-        <div class="flex-rose"> --> 
-            <!-- <table class="" colspan=4>
-                <tbody>
-                    {% for rose in rosesbouquets %} 
-                        {% if rose.image %} 
-                            <td colspan="4" style="padding-right: 40px; padding-bottom: 10px;"> <a href="{% url 'rose' rose.id %}"><img src="{{ rose.image.url }}" width="300"/></a></td>
-                        {% else %}
-                            <td colspan="4" style="padding-right: 40px; padding-bottom: 10px;"> <a href="{% url 'rose' rose.id %}"><img src="{% static 'media/nophoto.jpg' %}" width="300"/></a></td>
-                        {% endif %}   
-                    {% endfor %} 
-                </tbody>
-
-                <tbody>
-                    {% for rose in rosesbouquets %}
-                    <td colspan="4"><a href="{% url 'rose' rose.id %}"><h4 style="font-size: 18px; font-weight: bold; color: rgb(20, 110, 146);">{{ rose.name }}</h4></a></td>
-                    {% endfor %} 
-                </tbody>
-
-                <tbody>
-                    {% for rose in rosesbouquets %} 
-                        {% if rose.sale %}
-                            <td colspan="4"><p style="color: rgb(38, 138, 83); font-size: smaller; font-weight: bolder; text-decoration: line-through;">Цена: {{ rose.price }} Сом</p></td>
-                        {% else %} 
-                            <td colspan="4"><p style="color: rgb(38, 138, 83); font-size: smaller; font-weight: bolder;">Цена: {{ rose.price }} Сом</p></td>
-                        {% endif %} 
-                    {% endfor %} 
-                </tbody>
-
-                <tbody>
-                    {% for rose in rosesbouquets %} 
-                        {% if rose.sale %}
-                            <td colspan="4"><p style="color: rgb(211, 29, 29); font-size: 14px; font-weight: bolder;">Цена со скидкой: {{ rose.get_sale }} Сом</p></td>
-                        {% endif %} 
-                    {% endfor %} 
-                </tbody>
-
-                <tbody>
-                    {% for rose in rosesbouquets %} 
-                    <td colspan="4">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </td>
-                    {% endfor %} 
-                </tbody>
-
-            </table> -->
-
-
-            <h3>Букеты из роз</h3>
-
-<div class="container">
-
-    <div class="row row-cols-4">
+        <div class="bouquet-list d-flex justify-content-around flex-wrap">
         
-        
-        {% for rose in rosesbouquets %}
-            <div class="col">
+            {% for rose in rosesbouquets %}
+            
                     <div class="bouquet p-2">
                         <div class="image">
                             {% if rose.image %}
@@ -101,12 +35,14 @@
                             <span class="fa fa-star"></span>
                         </div>
                     </div>
-            </div>
+            
 
-        {% endfor %}
-
+            {% endfor %}
+        </div>
     </div>
 </div>
 
+<br>
+<br>
+
 {% endblock %}
-                        

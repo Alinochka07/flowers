@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'anniversaryfl',
     'homeflowers',
     'flowercare',
-    'campaign'
+    'campaign',
+    'others',
 ]
 
 MIDDLEWARE = [
