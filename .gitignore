@@ -110,6 +110,7 @@ ENV/
 env.bak/
 venv.bak/
 fvenv
+fvirt
 
 # Spyder project settings
 .spyderproject
