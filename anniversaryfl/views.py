@@ -52,18 +52,3 @@ def basketflower(request, id):
     except BasketBouquetFlowers.DoesNotExist as e:
         return HttpResponse(f'Товар не существует: {e}', status=404)
 
-## anniversary flowers
-
-def anniversary_bouquets(request):
-    anniversaryfl_object = AnniversaryFlowers.objects.all()
-    return render(request, 'anniversary/anniversary4.html', 
-    {'anniversarybouquets': anniversaryfl_object})
-
-
-def anniversaryflower(request, id):
-    try:
-        anniversary_object = AnniversaryFlowers.objects.get(id=id)
-        return render(request, 'anniversary/anniversary.html',
-        {'anniversary_object': anniversary_object})
-    except AnniversaryFlowers.DoesNotExist as e:
-        return HttpResponse(f'Товар не существует: {e}', status=404)

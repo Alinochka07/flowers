@@ -9,6 +9,4 @@ urlpatterns = [
     path('weddingbouquets/<int:id>/', weddingflower, name='weddingflower'),
     path('basketbouquets', basketbouquets, name='basket-bouquets'),
     path('basketbouquets/<int:id>/', basketflower, name='basketflower'),
-    path('anniversary', anniversary_bouquets, name='anniversary-bouquets'),
-    path('anniversary/<int:id>/', anniversaryflower, name='anniversaryflower')
 ]

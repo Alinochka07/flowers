@@ -6,7 +6,7 @@ from .models import *
 
 
 def campaign(request):
-    campaign_list = RosesBouquets.objects.all()
+    campaign_list = RosesBouquet.objects.all()
     campaign_season = SeasonFlowers.objects.all()
     campaign_assorted = AssortedFlowers.objects.all()
     context = {

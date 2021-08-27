@@ -2,74 +2,47 @@
 {% load static %}
 
 {% block page %}
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<style>
-    .checked {
-      color: orange;
-    }
-    </style>
-
-<h3>Букеты из 101 розы</h3>
-
 <div class="container">
+    <h3>Букеты из 101 розы</h3>
 
     <div class="row">
-        <div class="column-md-4">
-            <table class="" colspan=4>
-                <tbody>
-                    {% for hundredrose in hundredroses %} 
-                        {% if hundredrose.image %} 
-                            <td colspan="4" style="padding-right: 40px; padding-bottom: 10px;"> <a href="{% url 'hundredrose' hundredrose.id %}"><img src="{{ hundredrose.image.url }}" width="300"/></a></td>
+        <div class="bouquet-list d-flex justify-content-around flex-wrap">
+        
+            {% for hundredrose in hundredroses %}
+            
+                    <div class="bouquet p-2">
+                        <div class="image">
+                            {% if hundredrose.image %}
+                                <a href="{% url 'hundredrose' hundredrose.id %}"><img src="{{ hundredrose.image.url }}" width="300"/></a>
+                            {% else %}
+                                <a href="{% url 'hundredrose' hundredrose.id %}"><img src="{% static 'media/nophoto.jpg' %}" width="300"/></a>
+                            {% endif %}
+                        </div>
+                        <h4 style="font-size: 18px; font-weight: bold; color: rgb(20, 110, 146);">{{ hundredrose.name }}</h4></a>
+                        {% if hundredrose.sale %}
+                            <p style="color: rgb(38, 138, 83); font-size: smaller; font-weight: bolder; text-decoration: line-through;">Цена: {{ hundredrose.price }} Сом</p>
                         {% else %}
-                            <td colspan="4" style="padding-right: 40px; padding-bottom: 10px;"> <a href="{% url 'hundredrose' hundredrose.id %}"><img src="{% static 'media/nophoto.jpg' %}" width="300"/></a></td>
-                        {% endif %}   
-                    {% endfor %} 
-                </tbody>
-
-                <tbody>
-                    {% for hundredrose in hundredroses %} 
-                    <td colspan="4"><a href="{% url 'hundredrose' hundredrose.id %}"><h4 style="font-size: 18px; font-weight: bold; color: rgb(20, 110, 146);">{{ hundredrose.name }}</h4></a></td>
-                    {% endfor %} 
-                </tbody>
-
-                <tbody>
-                    {% for hundredrose in hundredroses %} 
+                            <p style="color: rgb(38, 138, 83); font-size: smaller; font-weight: bolder;">Цена: {{ hundredrose.price }} Сом</p>
+                        {% endif %}
                         {% if hundredrose.sale %}
-                            <td colspan="4"><p style="color: rgb(38, 138, 83); font-size: smaller; font-weight: bolder; text-decoration: line-through;">Цена: {{ hundredrose.price }} Сом</p></td>
-                        {% else %} 
-                        <td colspan="4"><p style="color: rgb(38, 138, 83); font-size: smaller; font-weight: bolder;">Цена: {{ hundredrose.price }} Сом</p></td>
-                        {% endif %} 
-                    {% endfor %} 
-                </tbody>
+                            <p style="color: rgb(211, 29, 29); font-size: 14px; font-weight: bolder;">Цена со скидкой: {{ hundredrose.get_sale }} Сом</p>
+                        {% endif %}
+                        <div class="stars">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+            
 
-                <tbody>
-                    {% for hundredrose in hundredroses %} 
-                        {% if hundredrose.sale %}
-                            <td colspan="4"><p style="color: rgb(211, 29, 29); font-size: 14px; font-weight: bolder;">Цена со скидкой: {{ hundredrose.get_sale }} Сом</p></td>
-                        {% endif %} 
-                    {% endfor %} 
-                </tbody>
-                
-
-                <tbody>
-                    {% for hundredrose in hundredroses %} 
-                    <td colspan="4">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </td>
-                    {% endfor %} 
-                </tbody>
-
-            </table>
-
+            {% endfor %}
         </div>
-
     </div>
 </div>
 
-{% endblock %}    
+<br>
+<br>
+
+{% endblock %}

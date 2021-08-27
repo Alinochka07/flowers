@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse
 from django.views import View
 from .models import *
 
@@ -7,17 +7,17 @@ from .models import *
 
 
 def roses_bouquets(request):
-    roses_bouquets_object = RosesBouquets.objects.all()
+    roses_bouquets_object = RosesBouquet.objects.all()
     return render(request, 'roses/flowers.html',
-    {'rosesbouquets': roses_bouquets_object})
+    {'rosesbouquet': roses_bouquets_object})
 
 def rose(request, id):
     try:
-        roses_object = RosesBouquets.objects.get(id=id)
+        roses_object = RosesBouquet.objects.get(id=id)
         return render(request, 'roses/roses.html', {
         'roses_object': roses_object
         })
-    except RosesBouquets.DoesNotExist as e:
+    except RosesBouquet.DoesNotExist as e:
         return HttpResponse(f'Товар не существует: {e}', status=404)
 
 

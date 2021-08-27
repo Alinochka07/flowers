@@ -3,4 +3,6 @@ from .models import *
 
 
 
-admin.site.register(HomeFlowers)
+admin.site.register(FlowersinPots)
+admin.site.register(HomePlants)
+admin.site.register(DecorPlants)

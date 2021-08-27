@@ -7,7 +7,7 @@ from django.utils import timezone
 
 
 
-class RosesBouquets(models.Model):
+class RosesBouquet(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
     price = models.IntegerField(null=True, blank=True)
@@ -30,10 +30,6 @@ class RosesBouquets(models.Model):
         verbose_name = "Букет из роз"
         verbose_name_plural = "Букеты из роз"
         ordering = ['name']
-
-# class Product(models.Model):
-#     name = models.CharField(max_length=100, db_index=True)
-#     category = models.ForeignKey(RosesBouquets, on_delete=models.CASCADE)
 
 
 
@@ -84,21 +80,6 @@ class AssortedFlowers(models.Model):
 
 
 
-
-
-#     title = models.CharField(max_length=150)
-#     date = models.DateTimeField()
-#     author = models.ForeignKey(setting.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
-
-
-# class Comment(models.Model):
-#     review = models.ForeignKey('review.Review', on_delete=models.CASCADE, related_name='comments', null=True)
-#     author = models.ForeignKey(setting.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
-#     text = models.TextField(max_length=300)
-#     created_date = models.DateTimeField(default=timezone.now)
-
-#     def __str__(self):
-#         return self.text
 
 
 
